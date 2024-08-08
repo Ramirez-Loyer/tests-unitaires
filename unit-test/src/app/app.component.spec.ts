@@ -6,6 +6,9 @@ describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let app : AppComponent;
 
+  /*beforeAll(() =>{
+  })*/
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -19,12 +22,29 @@ describe('AppComponent', () => {
 
   });
 
+  it('changeAge() should change correctly', () => {
+    expect(app.age).toBe(1);
+
+    app.changeAge();
+    
+    expect(app.age).toBe(12);
+  })
+
+  it('name() should be a string', () => {
+    //expect(app.name).toBe('test'); //Error: Expected 'mon app fms' to be 'test'
+    expect(app.name).toBeInstanceOf(String);
+    //expect(app.name).not.toBeInstanceOf(String); //Expected not to be an instance of String
+    expect(app.name).toBe('mon app fms'); //Va vérifier les deux String + 'mon app fms'
+  })
+
   it('should create the app', () => {
-    expect(app).toBeTruthy();
+    expect(app).toBeTruthy(); //pour vérifier que cela returne vrai
   });
 
   it(`should have as title 'unit-test'`, () => {
-    expect(app.title).toEqual('unit-test');
+    expect(app.title).toBe('unit-test'); //Fait une comparaison ===
+    //expect(5).toEqual('5'); //Fait une comparaison character =/= chiffre
+    //expect(5).toBeGreaterThan(6); //Dans l'execution: Error: 5 ne peux pas être plus grand que 6
   });
 
   it('should render title', () => {

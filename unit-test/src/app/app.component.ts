@@ -8,8 +8,17 @@ import { FormBuilder } from '@angular/forms';
 })
 export class AppComponent {
   title = 'unit-test';
+  public age: number = 1;
 
   constructor(private fb: FormBuilder ) {
-    
+
   }
+
+  public get name(): string {
+    return 'mon app fms';
+  }
+  public changeAge(): void {
+    this.age = 12;
+  }
+
 }
